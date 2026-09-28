@@ -52,10 +52,10 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.VK_TEAMS_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.VK_TEAMS_CHAT_ID }}
-          API_URL: ${{ secrets.VK_TEAMS_API_URL }}
+          DOMAIN: ${{ secrets.VK_TEAMS_DOMAIN }}
         run: >
           curl --silent --show-error --insecure --max-time 15 -G -X POST
-          "${API_URL}"
+          "${DOMAIN}bot/v1/messages/sendText"
           --data-urlencode "token=${BOT_TOKEN}"
           --data-urlencode "chatId=${CHAT_ID}"
           --data-urlencode "text=${{ env.TEXT_DATA }}"
